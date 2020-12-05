@@ -1,0 +1,73 @@
+.choose_data__div {
+  margin: 40px 0 10px 0;
+}
+
+.table_container {
+  margin: 20px 0;
+
+  .data_header {
+    display: flex;
+
+    &__containers:first-child {
+      flex: 1;
+    }
+
+    &__containers {
+      display: flex;
+      align-items: center;
+
+      .inputs {
+
+        .search {
+          padding: 4px;
+          font-size: 20px;
+          outline: 0;
+          border: 1px solid black;
+        }
+        select {
+          border-radius: 10px 0 0 10px;
+        }
+        input {
+          position: relative;
+          left: -1px;
+          height: 100%;
+          border-radius: 0 10px 10px 0;
+        }
+      }
+    }
+  }
+
+  .table_row {
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(230, 230, 230);
+    }
+
+    .table_cell__description {
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      max-width: 300px !important;
+    }
+  }
+
+  .dataCard {
+    margin: auto;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20rem;
+  }
+
+  .add_data {
+    margin: 10px 0 30px 0;
+
+    &__button {
+      text-align: right;
+    }
+    &__form {
+      margin: auto;
+      max-width: 400px;
+    }
+  }
+}
