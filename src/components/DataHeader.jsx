@@ -1,8 +1,14 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+
+import { clearData } from '../redux/actions/tableData'
+
 import { Link } from 'react-router-dom'
 import { Button } from 'semantic-ui-react'
 
-function DataHeader({ setData, setIsItSearch }) {
+function DataHeader({ setIsItSearch }) {
+  const dispatch = useDispatch();
+
   const [inputsValue, setInputsValue] = React.useState('');
   const [visibleSearch, setVisibleSearch] = React.useState(false);
   const [choosenSearch, setChoosenSearch] = React.useState({ text: 'Id', value: 'id' },);
@@ -20,7 +26,7 @@ function DataHeader({ setData, setIsItSearch }) {
 
   const changeVisibleSearch = () => {
     setVisibleSearch(!visibleSearch);
-    setSearchFalse();
+    setIsItSearch(false);
   }
 
   const changeChoosenSearch = (e) => {
@@ -29,8 +35,8 @@ function DataHeader({ setData, setIsItSearch }) {
 
   const searchData = () => {
     if (inputsValue.trim() !== '') {
-      setData();
       setIsItSearch({choosenSearch,inputsValue});
+      dispatch(clearData());
     } else {
       alert('Empty search')
     }
@@ -38,6 +44,7 @@ function DataHeader({ setData, setIsItSearch }) {
 
   const setSearchFalse = () => {
     setIsItSearch(false);
+    dispatch(clearData());
   }
 
   return (
@@ -67,7 +74,7 @@ function DataHeader({ setData, setIsItSearch }) {
               value={inputsValue} 
               className="search"
             ></input>
-            <Button onClick={() => searchData()}>Поиск</Button>
+            <Button as={Link} to="/1" onClick={() => searchData()}>Поиск</Button>
           </div>
         }
         <div>

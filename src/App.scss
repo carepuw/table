@@ -17,8 +17,10 @@
       align-items: center;
 
       .inputs {
-
+        display: flex;
+        align-items: center;
         .search {
+          height: 37px;
           padding: 4px;
           font-size: 20px;
           outline: 0;
@@ -30,7 +32,6 @@
         input {
           position: relative;
           left: -1px;
-          height: 100%;
           border-radius: 0 10px 10px 0;
         }
       }
